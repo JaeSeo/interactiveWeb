@@ -1,0 +1,173 @@
+<!-- 기념일 잊어버리고 안 챙겼다가 연인한테 혼난적 있으시죠? 다시는 그런 일이 없도록, 만난지 며칠 되었는지 계산해주는 웹사이트를 만들어보려고 합니다.
+
+
+
+시작 날짜가 제대로 입력되지 않은 채로 버튼을 누를 경우, '시작 날짜를 입력해주세요!'라는 메시지를 알러트창으로 띄웁니다.
+5월 13일에 만났고 현재 5월 13일이면 '만난지 1일째'입니다. 5월 13일에 만났고 현재 5월 14일이면 '만난지 2일째'입니다.
+<주의> 이 과제는 꼭 Chrome 브라우저에서 해주셔야 달력 모듈이 잘 동작합니다.
+
+태그의 값 바꾸기
+$('#day-count').text(5);
+이렇게 하면 day-count라는 아이디를 가진 요소의 내용이 5로 바뀝니다. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Couple Story</title>
+    <meta charset="utf-8" />
+    <link href="css/day.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="logo" src="images/day.png" width="157">
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <!-- 만난지 며칠? -->
+        <h2>만난지 <span id="day-count">00</span>일째</h2>
+
+        <div class="img-row">
+          <img src="images/female.png" width="148">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/heart.png" width="16">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/male.png" width="148">
+        </div>
+
+        <!-- 만나기 시작한 날짜 -->
+        <div class="date-row">
+          <label for="start">시작일</label>
+          <input type="date" name="start" id="start">
+        </div>
+
+        <!-- 며칠됐는지 계산하기! -->
+        <button id="calculate">결과 보기</button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      // 코드를 입력하세요!
+
+      $("#calculate").click(activate);
+      
+      function activate() {
+        if ($('#start').val() === '') {
+            alert('시작 날짜를 입력해주세요!');
+        } else {
+            var start = $('#start').val();
+
+            var currentDate = new Date();
+            var startDate = new Date(start);            
+           
+            var timeSpent = Math.floor((currentDate.getTime() - startDate.getTime())/1000/60/60/24) + 1;
+
+            $('#day-count').text(timeSpent);
+        }          
+      }
+      
+    </script>
+  </body>
+</html>
+
+
+<!-- 해설 -->
+<!-- 한 단계씩 만들어봅시다. 먼저, 결과보기 버튼에 이벤트를 연결해주어서 버튼이 클릭될 때 함수가 실행되도록 해주어야겠죠?
+
+// 이벤트 등록
+$('#calculate').on('click', calculateDate);
+
+function calculateDate() {
+  // 버튼을 눌렀을 때 실행될 코드
+}
+이제 calculateDate를 작성해봅시다. 두 개의 Date 객체가 필요한데, 하나는 현재의 날짜, 다른 하나는 input에 지정된 날짜입니다.
+
+// 이벤트 등록
+$('#calculate').on('click', calculateDate);
+
+function calculateDate() {
+  // Date 객체 만들기
+  var now = new Date();
+  var startDate = new Date($('#start').val());
+}
+이제 두 날짜의 차이를 구해봅시다. getTime의 값은 ms단위로 나오기 때문에, 날짜 단위로 변환하기 위해서는 / 1000 / 60 / 60 / 24를 해주면 됩니다.
+
+1000 (ms -> sec), 60 (sec -> min), 60 (min -> hour), 24 (hour -> day)
+
+// 이벤트 등록
+$('#calculate').on('click', calculateDate);
+
+function calculateDate() {
+  // Date 객체 만들기
+  var now = new Date();
+  var startDate = new Date($('#start').val());
+
+  // 날짜 차이 계산
+  var betweenDays = (now.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+}
+이제 이 값을 페이지에 표시해주면 됩니다. text 메서드를 사용하면 됩니다. 만약 같은 날짜라면 '1일째'라고 나와야 하니까 +1을 더해주겠습니다.
+
+// 이벤트 등록
+$('#calculate').on('click', calculateDate);
+
+function calculateDate() {
+  // Date 객체 만들기
+  var now = new Date();
+  var startDate = new Date($('#start').val());
+
+  // 날짜 차이 계산
+  var betweenDays = (now.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+
+  // 계산한 날짜를 페이지에 표시
+  $('#day-count').text(Math.floor(betweenDays) + 1);
+}
+만약 시작 날짜가 제대로 입력되지 않았다면 alert창을 통해 메시지를 출력합시다.
+
+// 이벤트 등록
+$('#calculate').on('click', calculateDate);
+
+function calculateDate() {
+  // Date 객체 만들기
+  var now = new Date();
+  var startDate = new Date($('#start').val());
+
+  // 날짜 차이 계산
+  var betweenDays = (now.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+
+  // 계산한 날짜를 페이지에 표시
+  $('#day-count').text(Math.floor(betweenDays) + 1);
+
+  // 잘못된 입력일 경우 메시지 출력
+  if ($('#start').val() === '') {
+    alert("날짜를 입력해주세요");
+  }
+}
+이 코드를 <script></script> 안에 넣으면 됩니다.
+
+<script>
+  // 이벤트 등록
+  $('#calculate').on('click', calculateDate);
+
+  function calculateDate() {
+    // Date 객체 만들기
+    var now = new Date();
+    var startDate = new Date($('#start').val());
+
+    // 날짜 차이 계산
+    var betweenDays = (now.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+
+    // 계산한 날짜를 페이지에 표시
+    $('#day-count').text(Math.floor(betweenDays) + 1);
+
+    // 잘못된 입력일 경우 메시지 출력
+    if ($('#start').val() === '') {
+      alert("날짜를 입력해주세요");
+    }
+  } -->

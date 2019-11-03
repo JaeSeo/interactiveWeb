@@ -1,0 +1,62 @@
+<!-- 최고의 HTML/CSS 수업인 코드잇 웹 퍼블리싱 수업을 이수하신 분들은 '로그인 페이지'를 만들어보셨을 겁니다.
+
+자바스크립트를 활용해서 '로그인 페이지'를 수정하려고 하는데요.
+
+아이디 혹은 비밀번호 둘 중 하나라도 입력란이 비어있다면, 로그인 버튼이 '비활성화'되어서 버튼의 배경색이 #9B9B9B로 설정되어야 합니다.
+사용자가 아이디와 비밀번호를 둘 다 입력하면, 로그인 버튼이 '활성화'되어서 버튼의 배경색이 #1BBC9B로 바뀌어야 합니다.
+힌트 1: 어떤 이벤트인가요?
+oninput을 사용하면, <input> 태그에 입력된 내용이 바뀔 때마다 이벤트 핸들러가 실행됩니다.
+
+힌트 2: 입력란의 값은 어떻게 받아오나요?
+<input type="text" id="input-tag-id">
+위와 같은 <input> 태그에 현재 입력된 값을 받아오려면 이렇게 하면 됩니다:
+
+$('#input-tag-id').val() -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로그인</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/valid.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <div class="login-form">
+    <form>
+      <input type="text" name="email" id="email-input" class="text-field" placeholder="아이디"><br>
+      <input type="password" name="password" id="password-input" class="text-field" placeholder="비밀번호"><br>
+      <input type="submit" value="로그인" id="submit-btn">
+    </form>
+
+    <div class="links">
+      <a href="#">비밀번호를 잊어버리셨나요?</a>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+    // 여기에 코드를 작성하세요.
+    $('#email-input').on('input', activate);
+    $('#password-input').on('input', activate);
+    
+    function activate() {
+        if ($('#email-input').val() === '') {
+          $('#email-input').css('background-color', '#9B9B9B');
+        } else {
+          $('#email-input').css('background-color', '#1BBC9B');
+        }
+        
+        if ($('#password-input').val() === '') {
+          $('#password-input').css('background-color', '#9B9B9B');
+        } else {
+          $('#password-input').css('background-color', '#1BBC9B');
+        }
+    }    
+    
+  </script>
+</body>
+</html>

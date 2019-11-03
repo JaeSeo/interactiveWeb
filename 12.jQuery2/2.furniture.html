@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Furniture Shop</title>
+    <meta charset="utf-8" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a href="#" id="logo">
+        <img src="images/logo.png" width="165">
+      </a>
+
+      <ul id="menu">
+        <li><a href="#">SHOP</a></li>
+        <li><a href="#">CART</a></li>
+        <li><a href="#">LOGIN</a></li>
+      </ul>
+    </div>
+
+    <div class="hero-header">
+      <div class="info">
+        <h1>블랙 프라이데이 슈퍼 세일</h1>
+        <h2>최대 50% 할인의 혜택을 받아보세요!</h2>
+        <button id="popup-trigger">쿠폰 받기</button>
+      </div>
+    </div>
+
+    <div id="popup" role="alert">
+      <div id="popup-container">
+        <h3>다운 완료!</h3>
+        <p>내 쿠폰함에서 확인하세요!</p>
+
+        <button id="close-btn">확인</button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      // 코드를 입력하세요.
+    $("#popup-trigger").on('click', function() {
+      $('#popup').fadeIn(500);
+    });  
+    
+    $('#close-btn').on('click', fadeOut);
+    $(document).on('keydown', fadeOut);
+    
+    function fadeOut(event) {
+        if(event.which=='27') { // ESC KEY
+          $('#popup').fadeOut(500);
+        }
+    };
+    </script>
+  </body>
+</html>
+
+<!-- 해설 -->
+<!-- 이 과제를 해결하기 위해 총 3가지 기능이 필요합니다.
+
+기능 1: '쿠폰 받기' 버튼을 눌렀을 때 팝업이 나타나게 하는 것
+#popup-trigger 버튼에 click 이벤트를 연결해줍니다.
+
+그리고 click 이벤트가 발생하면 fadeIn을 통해 #popup이 나타나도록 해줍니다.
+
+$('#popup-trigger').on('click', popupFadeIn);
+
+function popupFadeIn () {
+  $('#popup').fadeIn(500);
+};
+fadeIn()의 괄호에 숫자를 넣으면 그 시간만큼 천천히 팝업이 나타납니다.
+
+기능 2: 팝업 창의 '확인' 버튼을 눌렀을 때 팝업이 사라지게 하는 것
+첫 번째 기능과 유사하게 구현하면 됩니다.
+
+#close-btn 버튼에 click 이벤트를 연결해줍니다.
+
+그리고 click 이벤트가 발생하면 fadeOut을 통해 #popup이 사라지도록 해줍니다.
+
+  $('#close-btn').on('click', popupFadeOut);
+
+  function popupFadeOut () {
+      $('#popup').fadeOut(500);
+  };
+fadeOut()의 괄호에 숫자를 넣으면 그 시간만큼 천천히 사라집니다.
+
+기능 3: ESC 키를 눌렀을 때 팝업이 사라지게 하는 것
+이번엔 키보드와 관련된 동작이니 click이 아니라 keydown 이벤트를 document에 연결합니다.
+
+그리고 keydown 이벤트가 발생하면 눌러진 키가 어느 키인지 확인한 후, ESC 키가 맞다면 #popup을 fadeOut 합니다.
+
+$(document).on('keydown', pushEscKey);
+
+function pushEscKey(event) {
+    if(event.which=='27') { // ESC KEY
+        $('#popup').fadeOut(500);
+    }
+};
+완성!
+이 코드를 모아서 script 태그로 묶으면 이렇게 됩니다. 이 코드를 HTML 코드에 넣어주세요.
+
+<script>
+  $('#popup-trigger').on('click', popupFadeIn);
+
+  function popupFadeIn () {
+    $('#popup').fadeIn(500);
+  };
+
+  $('#close-btn').on('click', popupFadeOut);
+
+  function popupFadeOut () {
+      $('#popup').fadeOut(500);
+  };
+
+  $(document).on('keydown', pushEscKey);
+
+  function pushEscKey(event) {
+      if(event.which=='27') { // ESC KEY
+          $('#popup').fadeOut(500);
+      }
+  };
+</script> -->

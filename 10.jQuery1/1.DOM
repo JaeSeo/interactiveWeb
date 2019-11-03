@@ -1,0 +1,4 @@
+문서객체모델 (Document Object Model - DOM)
+텍스트 상태의 태그가 Tree 형태로 이루어진 것은 아니고, Object로 생성되어서 Tree 구조를 이루는 것.
+이 때 Object로 생성된다는 것은 HTML의 모든 요소가 Object(객체)로서 어떤 기능을 가지고 다른 Object(객체)와 협력을 할 수 있다는 의미.
+각각의 HTML 요소가 객체로 특정 기능을 갖게 되고, 그 Model 안에서 서로 구조적인 관계를 갖게되어 협력을 할 수 있음.

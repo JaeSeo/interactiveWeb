@@ -1,0 +1,60 @@
+<!-- 
+each 반복문을 사용해서 '짝수', '홀수' 버튼을 완성해주세요.
+
+참고로, .card라는 클래스를 가지고 있는 <div> 태그를 파란색으로 바꿔주려면 .selected라는 클래스를 추가해주면 됩니다. css/styles.css 파일에 정의된 코드를 참고하세요.
+
+/* 선택된 카드 */
+.card.selected {
+  background: #3E50B4; /* 파란색 */
+  color: white;
+} -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>홀짝</title>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/oddEven.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">13</div>
+    <div class="card">3</div>
+    <div class="card">14</div>
+    <div class="card">7</div>
+    <div class="card">22</div>
+    <div class="card">38</div>
+    <div class="card">17</div>
+    <div class="card">15</div>
+    <div class="card">11</div>
+    <div class="card">10</div>
+    <div class="card">22</div>
+    <div class="card">31</div>
+    <div class="card">32</div>
+    <div class="card">41</div>
+    <div class="card">10</div>
+    <div class="card">85</div>
+    <div class="card">17</div>
+    <div class="card">82</div>
+    <div class="card">70</div>
+    <div class="card">5</div>
+    <div class="card">53</div>
+    <div class="card">7</div>
+    <div class="card">4</div>
+    <div class="card">29</div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="buttons">
+    <button id="even-btn">짝수</button>
+    <button id="odd-btn">홀수</button>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

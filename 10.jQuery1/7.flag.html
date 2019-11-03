@@ -1,0 +1,55 @@
+<!-- “청기 내려. 백기 올려. 청기 내리지 말고 백기 올려!”
+
+'청기 백기' 게임 아시죠? 참가자들이 한 손에는 청기를, 다른 손에는 백기를 들고 있다가 사회자가 말하는 대로 동작을 해야 하는 게임입니다. 예를 들어, 사회자가 "청기 내리지 말고 백기 들어!"라고 외치면 그대로 따라해야 합니다. 만약 실수로 청기를 내린다거나 백기를 들지 않으면 탈락하게 됩니다.
+
+이 게임을 한 번 만들어봅시다.
+
+
+
+주어진 코드를 실행해보시면 총 6개의 깃발과, 3개의 버튼이 있습니다. HTML 코드와 CSS 코드를 분석한 후, 앞서 배운 jQuery 선택자와 메소드(함수)를 이용해, 각 버튼이 제대로 동작하도록 스크립트를 작성해보세요.
+
+깃발이 다시 올라오는 기능은 청기 백기 pt. 2 과제에서 구현할 테니, 일단은 내려간 깃발은 내려간 상태로 유지되도록 해주세요. -->
+
+<!-- 저번에는 내려간 깃발이 다시 올라오지 않았는데, 이번에는 다시 깃발이 올라오도록 써주세요.
+
+그리고 재미를 조금 더하기 위해, 깃발이 1초 뒤에 올라오도록 써줄 텐데요. setTimeout 함수를 사용하면 동작을 몇 초 후에 실행되도록 설정할 수 있습니다.
+
+// someFunction 함수가 1초 후 실행
+setTimeout(someFunction, 1000);
+
+// someFunction 함수가 3.5초 후 실행
+setTimeout(someFunction, 3500); -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>청기 백기</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="flags">
+      <img class="flag blue dot" src="images/blue_dot.png" width="100">
+      <img class="flag red" src="images/red_solid.png" width="100">
+      <img class="flag blue" src="images/blue_solid.png" width="100">
+      <img class="flag blue dot" src="images/blue_dot.png" width="100">
+      <img class="flag white dot" src="images/white_dot.png" width="100">
+      <img class="flag blue" src="images/blue_solid.png" width="100">
+    </div>
+
+    <div class="buttons">
+      <button id="btn1">청기 내려</button>
+      <button id="btn2">청기 내리지 말고 백기 내려</button>
+      <button id="btn3">점선 청기 내려</button>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

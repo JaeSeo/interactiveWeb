@@ -1,0 +1,173 @@
+<!-- JavaScript를 배웠는데 나만의 사이트 하나 정도는 있어야겠죠? 이번 챕터의 과제 4개를 모두 마치고 나면 이런 사이트가 되어 있을 겁니다.
+
+첫 번째로 메뉴의 폰트 색상을 바꿔봅시다.
+
+포트폴리오 사이트에는 섹션이 세 개 있습니다.
+
+'header' 섹션
+'about' 섹션
+'contact' 섹션
+'header' 섹션에 있을 때는 네비게이션바의 메뉴가 흰색으로 설정되어 있는데요. 'about' 섹션과 'contact' 섹션으로 이동하면 메뉴가 잘 보이도록 폰트 색상이 #4A4A4A로 바꿔주세요. -->
+
+<!--  -->
+
+<!-- 이제 메뉴의 색상은 잘 나오는데, 클릭하면 동작을 하지 않습니다.
+
+네비게이션바의 'About' 메뉴를 클릭하면 'about' 섹션으로 스크롤하도록, 그리고 'Contact' 메뉴를 클릭하면 'contact' 섹션으로 스크롤하도록 코드를 작성해주세요.
+
+스크롤은 1초 안에 부드럽게 움직여야 합니다. -->
+
+<!--  -->
+
+<!-- 이제 메뉴는 잘 동작하는데 각 섹션으로 이동해도 내용이 나오지 않네요.
+
+각 섹션의 내용은 'vertical-center'라는 클래스 이름의 'div'로 둘러싸여 있습니다. CSS 파일을 살펴보시면 'vertical-center'에는 이런 스타일이 적용되어 있는데요.
+
+.vertical-center {
+  opacity: 0;
+  position: relative;
+  top: 100px;
+}
+'opacity'가 '0' 으로 되어 있기 때문에 현재는 내용이 보이지 않는 거죠. 그리고 'top'이 '100px'로 되어 있어서 살짝 아래쪽에 위치하고 있습니다.
+
+스크롤을 해서 각 섹션에 다다르면 해당 섹션의 'vertical-center' 요소가 보이면서 정가운데로 1초 이내에 서서히 올라오도록 만들어주세요. ('opacity'가 '1'까지, 'top'이 '0px'까지)
+ -->
+
+<!--  -->
+
+<!-- 'About' 섹션에 나의 스킬 여섯 개가 나열되어 있습니다. 'About' 섹션에 다다랐을 때 해당 스킬의 퍼센티지(%)만큼 파란 막대기가 서서히 색칠되도록 해주세요.
+
+참고로 회색 막대기는 클래스 이름이 'bar'인 요소이고, 그 안에 클래스 이름이 'inner-bar'인 요소가 파란 막대기입니다.
+
+정확한 동작은 완성된 사이트를 참고해주세요!
+https://bakey.codeit.kr/web/users/1/assignments/891/index.html -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <!-- navigation bar -->
+  <div class="navbar">
+    <img src="images/profile_img.png" width="34" height="34">
+    <ul class="menu-right">
+      <li><button id="about-btn">About</button>
+      <li><button id="contact-btn">Contact</button>
+    </ul>
+  </div>
+
+  <section class="header">
+    <div class="helper"></div><div class="vertical-center">
+      <h1>I'm an engineer</h1>
+      <h2>FRONT-END DEVELOPER</h2>
+    </div>
+  </section>
+
+  <!-- about me -->
+  <section class="about">
+    <div class="helper"></div><div class="vertical-center">
+      <h3>About Me</h3>
+      <p>안녕하세요. 저는 프론트엔드와 백엔드를 넘나드는 개발자입니다. 만나서 반가워요!</p>
+
+      <div class="skillset">
+        <div class="skill">
+          <div class="title">HTML5</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">90%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="title">CSS3</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">90%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="title">jQuery</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">85%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Python</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">75%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Rails</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">70%</span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="title">Sketch</div>
+
+          <div class="bar">
+            <div class="inner-bar"></div>
+
+            <span class="percentage">90%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact me -->
+  <section class="contact">
+    <div class="helper"></div><div class="vertical-center">
+      <h3>Contact Me</h3>
+      <p>언제든지 편하게 연락주세요. 감사합니다.</p>
+
+      <form>
+        <input type="text" name="name" placeholder="NAME">
+        <input type="email" name="email" placeholder="EMAIL">
+        <textarea type="text" name="message" placeholder="MESSAGE"></textarea>
+      </form>
+    </div>
+  </section>
+    
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+<!-- feedback -->
+<!-- 지금도 잘해주셨는데 vertical-center가 animate 하는 부분이 반복되는데 이 부분도 반복문을 통해 구현할 수 있지 않을까요?
+
+Kim Youngjun2019.06.03 03:050
+요 부분만 한번 개선해보시고 제출 부탁드려요:)
+
+me
+스크롤 위치에 효과가 다르다 보니, 각 위치에 따른 조건을 걸어야해서 반복문 사용하기가 힘들 것 같은데,, 혹시 좀 더 힌트 주실 수 있을까요?
+
+Kim Youngjun2019.06.04 17:430
+이렇게 할 수 있지 않을까요? 7번째 줄에서 해주신 것 처럼, 공통된 태그를순회하여서 vertical-center를 찾아 animate 시키는 것입니다. this를 잘 이용해보시면 좋을 것 같습니다:) -->

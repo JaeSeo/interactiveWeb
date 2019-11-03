@@ -1,0 +1,54 @@
+<!-- 채팅 어플 "깨깨오톡"을 만들어보려고 합니다.
+
+
+
+주어진 HTML/CSS 코드를 분석한 후, 자바스크립트로 아래의 조건들을 따라서 기능을 추가해주세요:
+
+메시지를 입력하고 '전송' 버튼을 클릭하면 새로운 말풍선이 생깁니다.
+친구가 보낸 말풍선은 .friend-bubble 클래스를 갖고 있지만, 내가 보낸 말풍선은 .my-bubble 클래스를 갖고 있습니다.
+메시지가 전송되면 <textarea>는 다시 빈 칸이 됩니다.
+<textarea>가 비어 있으면 메시지는 보내지지 않습니다. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>깨깨오톡</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/chat.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+    <div class="chat-header">
+        <button id="close" class="header-btn"></button>
+        <button id="minimize" class="header-btn"></button>
+        <button id="maximize" class="header-btn"></button>
+
+        <img id="profile-pic" src="images/young.png" width="50" height="50">
+        <span id="username">구남친</span>
+    </div>
+
+    <div class="chatbox">
+        <div class="friend-bubble bubble">
+        잘 지내?
+        </div>
+        <div class="friend-bubble bubble">
+        자니?
+        </div>
+    </div>
+
+    <div class="text-box">
+        <textarea placeholder="대화내용이 들어갑니다."></textarea>
+        <button id="send">전송</button>
+        <div class="clearfix"></div>
+    </div>
+    </div>
+    
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
